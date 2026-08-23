@@ -1,0 +1,9 @@
+{
+  "name": "Gestion de Tramites Internos",
+  "short_name": "Tramites",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2196F3",
+  "description": "Maqueta academica IHC - UAGRM"
+}
