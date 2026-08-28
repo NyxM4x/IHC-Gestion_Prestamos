@@ -1,13 +1,4 @@
-# Archivos generados por Flutter / Dart
 .dart_tool/
-.packages
 build/
 .flutter-plugins
 .flutter-plugins-dependencies
-
-# pubspec.lock SI se versiona: este proyecto es una aplicacion, no una libreria.
-# Asi cualquier PC instala exactamente las mismas versiones de paquetes.
-
-# Editores
-.idea/
-*.iml

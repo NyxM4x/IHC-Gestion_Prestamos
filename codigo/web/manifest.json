@@ -1,6 +1,6 @@
 {
-  "name": "Gestion de Tramites Internos",
-  "short_name": "Tramites",
+  "name": "Gestion de Prestamos",
+  "short_name": "Prestamos",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#FFFFFF",

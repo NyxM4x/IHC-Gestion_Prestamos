@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "gestion_tramites (Chrome)",
+      "name": "Gestión de Préstamos (Chrome)",
       "request": "launch",
       "type": "dart",
       "deviceId": "chrome"
