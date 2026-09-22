@@ -2,48 +2,55 @@
 
 ## Integrantes
 * **Adalid Grageda Rojas** — 221044574
+
 ## Contexto Académico
 * **Materia:** Interacción Hombre-Computador (IHC)
 
 ## Tipo de proyecto
-Aplicación Móvil (Desarrollada en Flutter / Dart) — Fase actual: Prototipo Funcional (Mocked MVP).
+Aplicación móvil y de escritorio desarrollada en Flutter / Dart, con base de datos
+PostgreSQL en Supabase. Corre con el mismo código en Android y en navegador.
 
 ## Modalidad de implementación
 Sin IA / sin agentes de inteligencia artificial.
 
-## Problema inicial
-Los prestamistas independientes o informales gestionan su cartera de clientes, préstamos y cobros de forma manual (cuadernos, hojas de cálculo sueltas o memoria). Esto genera desorden, errores matemáticos al calcular cuotas o intereses, y una alta carga cognitiva al intentar revisar rápidamente el estado de la deuda de un prestatario.
+## Problema
+Los prestamistas independientes gestionan su cartera de clientes, préstamos y cobros de
+forma manual: cuadernos, hojas sueltas o memoria. El registro en papel está organizado
+por cliente y no por fecha de vencimiento, así que responder *"¿a quién le cobro hoy y
+cuánto?"* obliga a recorrer el cuaderno y rehacer las sumas a mano, muchas veces con el
+cliente esperando enfrente.
 
-## Solución Propuesta
-La app busca optimizar la usabilidad y reducir la carga cognitiva del prestamista mediante una interfaz modesta y directa. Permite:
-1. **Gestionar Clientes:** Registro rápido de prestatarios y visualización de su "Billetera" (saldo deudor vs. abonado).
-2. **Plantillas de Préstamos:** Creación ágil de créditos usando modalidades predefinidas (ej. Cuota Fija mensual) para evitar cálculos manuales.
-3. **Control de Cuotas:** Generación automática del plan de pagos, permitiendo al administrador visualizar de un vistazo las cuotas pendientes, pagadas o en mora.
-## Entregable de hoy (jueves) — Jerarquía, layout y espaciado
+De ahí salen los tres problemas que se observaron: cobros vencidos que pasan inadvertidos,
+mora que no se aplica porque calcularla cuesta, y errores de suma frente al cliente.
 
-**Qué se pedía:** elegir una pantalla del proyecto y mejorarla aplicando jerarquía visual
-(que se note qué es lo más importante), layout (cómo se ordenan los bloques) y espaciado
-(que las distancias sigan una regla y no sean números al azar). Además, dejar por escrito
-las decisiones y probarlas con una persona real.
+## Solución
 
-**Qué se hizo:** se trabajó la pantalla **Detalle del préstamo**.
+**1. La agenda del día, no el listado de clientes.**
+La aplicación abre mostrando cuánto hay que cobrar hoy y a quiénes, ordenado por
+vencimiento. El monto ya viene con la mora calculada: no hay nada que sumar.
 
-* **Antes:** la pantalla mostraba una tarjeta con tres líneas del mismo tamaño y, debajo,
-  la lista completa de cuotas. Todo pesaba igual, así que el prestamista tenía que buscar
-  a mano la cuota por vencer y sumar la mora de cabeza. Tampoco había ningún botón: la
-  pantalla solo se leía, no se podía registrar el cobro. Los espacios entre elementos eran
-  números sueltos escritos uno por uno, así que cosas sin relación se veían igual de juntas
-  que cosas relacionadas.
-* **Después:** lo primero que se ve es **cuánto hay que cobrar hoy**, en grande y dentro de
-  una tarjeta destacada, con el desglose de cuota más mora debajo. Justo abajo hay un único
-  botón, *Registrar pago*, que pide confirmación mostrando el monto. La lista de cuotas pasó
-  al final, porque es detalle y no lo primero que se necesita. Todas las separaciones salen
-  ahora de una misma escala de 8 px: poco espacio dentro de un bloque, más espacio entre
-  bloques y todavía más entre secciones.
+**2. Préstamos sin modalidades impuestas.**
+El prestamista define sus propios términos: cuánto presta, cuánto le devuelven —como
+porcentaje o como monto fijo—, cada cuánto se paga, en cuántas cuotas y desde cuándo. La
+aplicación genera el plan de pagos y muestra el trato resumido en una frase antes de
+guardarlo.
 
-**Archivos entregados:**
-* [`diseno/wireframe-detalle-prestamo.md`](diseno/wireframe-detalle-prestamo.md) — el wireframe con el nuevo orden de la pantalla.
-* [`diseno/registro-decisiones.md`](diseno/registro-decisiones.md) — las tres decisiones explicadas con antes / después.
-* [`codigo/lib/ui/espaciado.dart`](codigo/lib/ui/espaciado.dart) — la escala de espaciado.
-* [`codigo/lib/screens/prestamos/detalle_prestamo_screen.dart`](codigo/lib/screens/prestamos/detalle_prestamo_screen.dart) — la pantalla ya con la mejora aplicada.
+**3. Acompañamiento en cada paso.**
+Las advertencias aparecen mientras se escribe, no al final: si el nombre de usuario ya
+está ocupado, si la fecha de inicio ya pasó, si con esos números no se gana nada, si esa
+persona ya tiene un préstamo sin terminar de pagar.
 
+**4. La billetera del cliente.**
+Cuánto debe cada persona, en qué préstamos, y el historial completo de lo que entregó,
+para poder mostrarlo si alguna vez discute un cobro.
+
+## Estructura del repositorio
+
+```
+brief/      El problema, la evidencia y el alcance, versionados
+persona/    Usuario objetivo, mapa de pantallas, flujos y decisiones de diseño
+research/   Las observaciones que sostienen el problema
+codigo/     La aplicación en Flutter
+```
+
+Para ejecutar el proyecto, ver [`codigo/README.md`](codigo/README.md).

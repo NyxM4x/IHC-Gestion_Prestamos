@@ -5,7 +5,16 @@
       "name": "Gestión de Préstamos (Chrome)",
       "request": "launch",
       "type": "dart",
-      "deviceId": "chrome"
+      "program": "lib/main.dart",
+      "deviceId": "chrome",
+      "toolArgs": ["--dart-define-from-file=.env.local"]
+    },
+    {
+      "name": "Gestión de Préstamos (celular / emulador)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": ["--dart-define-from-file=.env.local"]
     }
   ]
 }

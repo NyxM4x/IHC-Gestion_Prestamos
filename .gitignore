@@ -1,0 +1,36 @@
+# Instrucciones y configuracion de asistentes de IA (no forman parte del proyecto)
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+.claude/
+.claude*/
+.cursor/
+.cursorrules
+.copilot/
+.github/copilot-instructions.md
+.aider*
+.windsurfrules
+skills/
+**/skills/
+*.skill.md
+prompts/
+.mcp.json
+
+# Claves y configuracion local (NO se suben: cada quien tiene las suyas)
+.env.local
+*.env.local
+codigo/.env.local
+
+# Flutter / Dart
+codigo/.dart_tool/
+codigo/build/
+codigo/.flutter-plugins
+codigo/.flutter-plugins-dependencies
+codigo/.packages
+
+# Editor / sistema
+.vscode/
+.idea/
+*.iml
+Thumbs.db
+desktop.ini
